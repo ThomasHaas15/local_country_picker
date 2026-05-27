@@ -1,3 +1,17 @@
+## 1.2.0
+
+* Add a public flag-rendering API so flags can be shown by ISO 3166-1 alpha-2
+  code without opening the picker:
+  * `CountryFlag(code, {shape, width, height, fit, errorWidget})` widget —
+    renders the bundled flag PNG and degrades gracefully (renders
+    `errorWidget` or an empty `SizedBox`) for unknown/missing codes.
+  * `countryFlagAssetPath(code, {shape})` — returns the in-package asset path
+    (e.g. `assets/flags/round/IT.png`).
+  * `countryFlagImage(code, {shape})` — returns an `AssetImage` scoped to the
+    package.
+  * `isKnownCountryCode(code)` — case-insensitive membership check.
+  Additive and backward-compatible; no existing API changed.
+
 ## 1.1.0
 
 * Header redesign: 40h × (16h, 8v outer) padding, 16pt bold title, bundled

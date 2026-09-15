@@ -42,16 +42,12 @@ void main() {
 
   group('CountryFlag widget', () {
     testWidgets('renders an Image for a known code', (tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(home: CountryFlag('IT')),
-      );
+      await tester.pumpWidget(const MaterialApp(home: CountryFlag('IT')));
       expect(find.byType(Image), findsOneWidget);
     });
 
     testWidgets('renders the fallback for an unknown code', (tester) async {
-      await tester.pumpWidget(
-        const MaterialApp(home: CountryFlag('ZZ')),
-      );
+      await tester.pumpWidget(const MaterialApp(home: CountryFlag('ZZ')));
       // No asset lookup is attempted, so no Image is built and nothing throws.
       expect(find.byType(Image), findsNothing);
       expect(find.byType(SizedBox), findsWidgets);
@@ -62,10 +58,7 @@ void main() {
     ) async {
       await tester.pumpWidget(
         const MaterialApp(
-          home: CountryFlag(
-            'ZZ',
-            errorWidget: Text('no flag'),
-          ),
+          home: CountryFlag('ZZ', errorWidget: Text('no flag')),
         ),
       );
       expect(find.byType(Image), findsNothing);

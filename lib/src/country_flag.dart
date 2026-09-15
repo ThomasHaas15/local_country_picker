@@ -48,11 +48,10 @@ String countryFlagAssetPath(
 AssetImage countryFlagImage(
   String countryCode, {
   CountryFlagShape shape = CountryFlagShape.round,
-}) =>
-    AssetImage(
-      countryFlagAssetPath(countryCode, shape: shape),
-      package: _kPackageName,
-    );
+}) => AssetImage(
+  countryFlagAssetPath(countryCode, shape: shape),
+  package: _kPackageName,
+);
 
 /// Renders a country flag image from a 2-letter ISO 3166-1 alpha-2 code.
 ///
